@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: honeytrap
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/workspace/app
+      - ./data:/workspace/data
+    ports:
+      - "8000:9001"
+    restart: unless-stopped

@@ -22,7 +22,7 @@ class DatabaseSettings(BaseSettings):
         extra="ignore",
     )
 
-    URL: str = "sqlite+aiosqlite:///db.sqlite3"
+    URL: str = "sqlite+aiosqlite:///data/db.sqlite3"
     ECHO: bool = False
 
 
