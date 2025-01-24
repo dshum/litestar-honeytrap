@@ -32,7 +32,7 @@ ENV PATH="/workspace/.venv/bin:$PATH"
 ENV LITESTAR_APP="app.main:app"
 
 # Expose the application port
-EXPOSE 9001
+EXPOSE 8000
 
 # Run the Litestar application
-CMD ["litestar","run", "--host", "0.0.0.0", "--port", "9001"]
+CMD ["litestar","run", "--host", "0.0.0.0", "--port", "8000"]
