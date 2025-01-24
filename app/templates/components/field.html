@@ -1,0 +1,13 @@
+<label>
+  {{ field.label(required="true" if field.flags.required else "false") }}
+  {% if field.errors %}
+    {{ field(**{"aria-invalid": "true", "aria-describedby": "invalid-"+field.name}) }}
+    <small id="{{ 'invalid-'+field.name }}">
+      {% for error in field.errors %}
+        {{ error }}<br>
+      {% endfor %}
+    </small>
+  {% else %}
+    {{ field }}
+  {% endif %}
+</label>

@@ -1,0 +1,35 @@
+:root {
+    --pico-font-family-sans-serif: "Roboto", system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, Arial, "Helvetica Neue", sans-serif, var(--pico-font-family-emoji);
+}
+
+body {
+    overflow-y: scroll;
+    font-size: 18px;
+}
+
+#theme-switcher {
+    cursor: pointer;
+}
+
+label[required="true"]:after {
+    content: ' *';
+    color: #D93526;
+}
+
+header nav h1 {
+    --pico-font-family: "Mystery Quest", serif;
+    --pico-font-weight: 400;
+    --pico-typography-spacing-vertical: 0.5rem;
+}
+
+h2, h3, h4, h5, h6 {
+    --pico-font-family: "Roboto Slab", serif;
+}
+
+div[data-tooltip] {
+    border-bottom: none;
+}
+
+.d-none {
+    display: none;
+}

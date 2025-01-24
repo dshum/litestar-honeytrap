@@ -1,0 +1,33 @@
+<form
+    hx-trigger="submit" hx-post="/form"
+    hx-target="this" hx-swap="outerHTML">
+  <fieldset>
+    <div class="grid">
+      {% with field=form.first_name %}
+        {% include "components/field.html" %}
+      {% endwith %}
+      {% with field=form.last_name %}
+        {% include "components/field.html" %}
+      {% endwith %}
+    </div>
+
+    <div class="grid">
+      {% with field=form.email %}
+        {% include "components/field.html" %}
+      {% endwith %}
+      {% with field=form.phone %}
+        {% include "components/field.html" %}
+      {% endwith %}
+    </div>
+
+    {% with field=form.message %}
+      {% include "components/field.html" %}
+    {% endwith %}
+
+    {% with field=form.is_human %}
+      {% include "components/switch.html" %}
+    {% endwith %}
+  </fieldset>
+
+  <input type="submit" value="Send"/>
+</form>

@@ -1,0 +1,45 @@
+[project]
+name = "litestar-honeytrap"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    { name = "Denis Shumeev", email = "denis-shumeev@yandex.ru" },
+]
+dependencies = [
+    "litestar[standard,structlog,sqlalchemy]>=2.14.0",
+    "wtforms>=3.2.1",
+    "polyfactory>=2.18.1",
+    "pytest>=8.3.4",
+    "pydantic-settings>=2.7.1",
+    "aiosqlite>=0.20.0",
+    "faker>=33.3.1",
+    "email-validator>=2.2.0",
+    "pytest-cov>=6.0.0",
+    "litestar-saq>=0.4.0",
+]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = { text = "MIT" }
+
+
+[tool.pdm]
+distribution = false
+
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = [
+    "--import-mode=importlib",
+]
+
+
+[tool.coverage.report]
+exclude_also = [
+    "def on_cli_init",
+    "def http_exception_handler",
+]
+
+
+[tool.coverage.run]
+branch = true
+concurrency = ["thread", "greenlet"]

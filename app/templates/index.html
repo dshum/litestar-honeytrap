@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="auto light dark">
+  <link rel="icon" href="{{ url_for('static', file_path='favicon.png') }}" sizes="16x16" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&family=SUSE:wght@100..800&display=swap"
+        rel="stylesheet">
+  <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+  >
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+  >
+  <link rel="stylesheet" href="{{ url_for('static', file_path='app.css') }}">
+  <script
+      src="https://unpkg.com/htmx.org@2.0.4"
+      integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+      crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', file_path='theme-switcher.js') }}" defer></script>
+  <title>A honey trap</title>
+</head>
+
+<body>
+<header class="container">
+  <nav>
+    <ul>
+      <li>
+        <hgroup>
+          <h1 class="pico-color-amber-200">Honey Trap</h1>
+          <p>A form for catching spam bots</p>
+        </hgroup>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <div id="theme-switcher" data-tooltip="Switch theme"></div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container">
+  <h3>Please fill out the feedback form...</h3>
+
+  <article>
+    <div hx-get="/form" hx-trigger="load"></div>
+  </article>
+
+  <h3>Recent messages</h3>
+
+  <article hx-get="/messages" hx-trigger="load"></article>
+</main>
+
+<footer class="container">
+  <small>Built with
+    <a href="https://litestar.dev">Litestar</a> •
+    <a href="https://wtforms.readthedocs.io">WTForms</a> •
+    <a href="https://htmx.org">HTMX</a> •
+    <a href="https://picocss.com">Pico</a> •
+    <a href="https://github.com/dshum/litestar-honeytrap">Source code</a>
+  </small>
+</footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% if messages %}
+  {% for message in messages %}
+    {% if loop.first and offset > 0 %}
+      <hr>{% endif %}
+    <p>
+      <span class="pico-color-slate-400">{{ message.created_at.strftime("%Y-%m-%d %H:%M") }}</span>
+      •
+      {{ message.message }} •
+      <em>{{ message.author }}</em> •
+      <u>{{ message.email }}</u> •
+      {% if message.is_human %}
+        <span class="pico-color-green-400">Human</span>
+      {% else %}
+        <span class="pico-color-orange-400">Robot</span>
+      {% endif %}
+    </p>
+    {% if not loop.last %}
+      <hr>{% endif %}
+  {% endfor %}
+
+  {% if next_offset %}
+    <button class="contrast"
+            hx-get="/messages?offset={{ next_offset }}"
+            hx-trigger="click"
+            hx-swap="outerHTML"
+    >
+      Next messages
+    </button>
+  {% endif %}
+{% elif not offset %}
+  No messages yet
+{% endif %}
