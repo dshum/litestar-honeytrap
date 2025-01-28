@@ -12,7 +12,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.honeytrap.rule=Host(`honeytrap.pffft.ru`)"
+      - "traefik.http.routers.honeytrap.rule=Host(`pffft.ru`)"
       - "traefik.http.routers.honeytrap.entrypoints=websecure"
       - "traefik.http.routers.honeytrap.tls.certresolver=myresolver"
       - "traefik.http.services.honeytrap.loadbalancer.server.port=8000"
